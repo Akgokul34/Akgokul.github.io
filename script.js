@@ -1,9 +1,9 @@
 function toggleDescription(descriptionId) {
     var desc = document.getElementById(descriptionId);
-    if (desc.style.display === "none") {
-        desc.style.display = "block";
+    if (desc.classList.contains("visible")) {
+        desc.classList.remove("visible");
     } else {
-        desc.style.display = "none";
+        desc.classList.add("visible");
     }
 }
 
@@ -13,8 +13,9 @@ function downloadFile() {
     link.download = 'AI_Fake_Audio_Paper.pdf'; 
     link.click();
 }
+
 const typedText = document.getElementById("typed-text");
-const strings = ["Data Scientist", "Data Analyst", "AI Engineer","Web Developer"];
+const strings = ["Data Scientist", "Data Analyst", "AI Engineer", "Web Developer"];
 let index = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -31,18 +32,17 @@ function typeEffect() {
 
     if (!isDeleting && charIndex === currentString.length) {
         isDeleting = true;
-        setTimeout(typeEffect, 1000); // Pause at the end of typing
+        setTimeout(typeEffect, 1200); // Pause at the end of typing
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         index = (index + 1) % strings.length; // Loop to the next string
-        setTimeout(typeEffect, 800); // Pause before typing the next string
+        setTimeout(typeEffect, 900); // Pause before typing the next string
     } else {
-        setTimeout(typeEffect, isDeleting ? 100 : 150); // Typing speed
+        setTimeout(typeEffect, isDeleting ? 80 : 130); // Typing speed
     }
 }
 
 typeEffect(); // Start the typing effect
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const fadeElements = document.querySelectorAll('.fade-in');
@@ -110,16 +110,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Disable common copy-related keyboard shortcuts
     document.addEventListener('keydown', event => {
-        // Check for Ctrl or Cmd key
         if (event.ctrlKey || event.metaKey) {
-            // List of keys to block: A, C, X, S, U, Shift+I
             const blockedKeys = ['a', 'c', 'x', 's', 'u', 'i'];
             const key = event.key.toLowerCase();
 
             if (blockedKeys.includes(key)) {
-                // For Shift+I, check shiftKey as well
                 if (key === 'i' && !event.shiftKey) {
-                    return; // Allow if shift is not pressed
+                    return;
                 }
                 event.preventDefault();
             }
