@@ -1,9 +1,15 @@
 function toggleDescription(descriptionId) {
     var desc = document.getElementById(descriptionId);
-    if (desc.classList.contains("visible")) {
-        desc.classList.remove("visible");
+    if (desc.style.display === "block") {
+        desc.style.opacity = 0;
+        setTimeout(() => {
+            desc.style.display = "none";
+        }, 300);
     } else {
-        desc.classList.add("visible");
+        desc.style.display = "block";
+        setTimeout(() => {
+            desc.style.opacity = 1;
+        }, 10);
     }
 }
 
@@ -102,6 +108,19 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
+        });
+    });
+
+    // Smooth scrolling for navbar links
+    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 

@@ -3,13 +3,7 @@
 
 <head>
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/5f59ca6ad3.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
@@ -541,6 +535,101 @@
             </p>
         </div>
         
+        <div class="container">
+            <div class="row d-flex align-items-stretch fade-in">
+              <!-- Project 4 -->
+              <div class="col-md-6 project" style="background-image: url('images/aimlagent.jpeg');">
+                <h4>ML Data Agent</h4>
+                <button class="btn btn-primary" onclick="toggleDescription('description4')">Click to know more!</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Description for Project 4 -->
+          <div id="description4" class="project-description" style="display: none; padding: 15px; text-align: start;">
+            <h3>ML Data Agent</h3>
+            <p>
+              ML Data Agent is an intelligent assistant that processes user-uploaded CSV files, automates data analysis tasks, and enables interactive model development.
+            </p>
+          
+            <h4>Core Workflows</h4>
+            <ul>
+              <li><strong>Data Cleaning:</strong> Automatically detects and removes unwanted columns, handles missing values, and standardizes data formats.</li>
+              <li><strong>Visualization:</strong> Generates interactive charts and plots to help you explore and understand your dataset.</li>
+              <li><strong>Feature Engineering:</strong> Suggests and applies transformations to create new features for improved model performance.</li>
+              <li><strong>Target Selection &amp; Modeling:</strong> Guides you to select the target column and trains multiple machine learning models (e.g., decision trees, random forests, logistic regression).</li>
+              <li><strong>Downloadable Outputs:</strong> Allows you to download the cleaned CSV and the trained model for future use.</li>
+              <li><strong>AI Chat Support:</strong> Chat with the agent using ChatGROQ's LLM models to ask questions, troubleshoot issues, and get recommendations.</li>
+            </ul>
+          
+            <h4>Technologies &amp; Integration</h4>
+            <ul>
+              <li>Python, Pandas, Scikit-learn for data processing and modeling.</li>
+              <li>Plotly and Matplotlib for visualizations.</li>
+              <li>ChatGROQ LLM API for conversational support.</li>
+              <li>Framework: LangChain for orchestrating LLM pipelines and custom tool development.</li>
+              <li>Graph Management: LangGraph for constructing and visualizing tool graphs.</li>
+              <li>Dropdown menu to select from multiple LLMs for tailored assistance.</li>
+              <li>Flask or FastAPI backend for file handling and model serving.</li>
+            </ul>
+            <p>
+              This project streamlines the end-to-end data science workflow by combining automated data processing, model training, and AI-powered interactive support in a single agent.
+            </p>
+          </div>
+          
+                  
+          <div class="container">
+            <div class="row d-flex align-items-stretch fade-in">
+              <!-- Project 5 -->
+              <div class="col-md-6 project" style="background-image: url('images/aidocassistant.jpeg');">
+                <h4>AI Doctor Chatbot Assistant</h4>
+                <button class="btn btn-primary" onclick="toggleDescription('description5')">Click to know more!</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Description for Project 5 -->
+          <div id="description5" class="project-description" style="display: none; padding: 15px; text-align: start;">
+            <h3>AI Doctor Chatbot Assistant</h3>
+            <p>
+              An intelligent conversational assistant tailored for healthcare professionals, offering clinical decision support, patient data summarization, and interactive diagnostic tools.
+            </p>
+          
+            <h4>Core Capabilities</h4>
+            <ul>
+              <li><strong>get_drug_info:</strong> Fetch detailed drug monographs and prescribing information.</li>
+              <li><strong>check_drug_interactions:</strong> Identify potential adverse interactions between multiple medications.</li>
+              <li><strong>get_symptom_info:</strong> Provide insights into symptom causes and associated conditions.</li>
+              <li><strong>retrieve_patient_summary:</strong> Summarize patient history and recent visits from stored records.</li>
+              <li><strong>explain_medical_abbreviation:</strong> Decode common and obscure medical acronyms.</li>
+              <li><strong>clinical_guidelines_tool:</strong> Access up-to-date clinical protocols and treatment guidelines.</li>
+              <li><strong>differential_diagnosis_tool:</strong> Generate ranked lists of possible diagnoses based on inputs.</li>
+              <li><strong>dosage_calculator_tool:</strong> Calculate weight- or age-based medication dosages.</li>
+              <li><strong>literature_summarization_tool:</strong> Condense recent research articles into key takeaways.</li>
+              <li><strong>lab_test_interpretation_tool:</strong> Interpret lab values and flag abnormal results.</li>
+              <li><strong>patient_education_tool:</strong> Generate easy-to-understand educational materials for patients.
+                <ul>
+                  <li><em>Report Analysis:</em> Parse structured reports to pull key findings.</li>
+                  <li><em>Image Report Analysis:</em> Analyze image-based reports (e.g., X-rays, MRIs) and highlight critical observations.</li>
+                </ul>
+              </li>
+            </ul>
+          
+            <h4>Technologies &amp; Architecture</h4>
+            <ul>
+              <li>Frontend: HTML, CSS, JavaScript for an interactive UI.</li>
+              <li>Backend: Django REST framework for API endpoints and business logic.</li>
+              <li>Framework: LangChain for orchestrating LLM pipelines and custom tool development.</li>
+              <li>Data Storage: ChromaDB for vector embeddings of documents and clinical notes.</li>
+              <li>Database: PostgreSQL to persist patient records, reports, and chat logs.</li>
+              <li>LLM Integration: Connects to ChatGROQ or other selected LLMs via dropdown for flexible conversational models.</li>
+            </ul>
+          
+            <p>
+              Built to streamline clinical workflows, this assistant combines robust backend services, a modular frontend, and advanced LLM-driven tools to support doctors in delivering precise, data-driven patient care.
+            </p>
+          </div>
+          
         
     </section>
     
