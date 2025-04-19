@@ -1,4 +1,3 @@
-// Function to toggle visibility of the project description
 function toggleDescription(descriptionId) {
     var desc = document.getElementById(descriptionId);
     if (desc.style.display === "none") {
@@ -45,29 +44,85 @@ function typeEffect() {
 typeEffect(); // Start the typing effect
 
 
-        // Wait until the document is fully loaded before setting up Intersection Observer
-        document.addEventListener("DOMContentLoaded", function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
+document.addEventListener("DOMContentLoaded", () => {
+    const fadeElements = document.querySelectorAll('.fade-in');
 
-            // Options for IntersectionObserver
-            const options = {
-                threshold: 0.5  // Trigger when 50% of the element is visible
-            };
+    const options = {
+        threshold: 0.5
+    };
 
-            // Create an IntersectionObserver instance
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Add 'visible' class to trigger fade-in animation
-                        entry.target.classList.add('visible');
-                        // Stop observing this element once it's in view
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, options);
-
-            // Start observing each element with the 'fade-in' class
-            fadeElements.forEach(element => {
-                observer.observe(element);
-            });
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
         });
+    }, options);
+
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
+
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    // Throttle function to limit scroll event calls
+    const throttle = (func, limit) => {
+        let lastFunc;
+        let lastRan;
+        return function() {
+            const context = this;
+            const args = arguments;
+            if (!lastRan) {
+                func.apply(context, args);
+                lastRan = Date.now();
+            } else {
+                clearTimeout(lastFunc);
+                lastFunc = setTimeout(function() {
+                    if ((Date.now() - lastRan) >= limit) {
+                        func.apply(context, args);
+                        lastRan = Date.now();
+                    }
+                }, limit - (Date.now() - lastRan));
+            }
+        };
+    };
+
+    const toggleScrollButton = () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    };
+
+    window.addEventListener('scroll', throttle(toggleScrollButton, 200));
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable common copy-related keyboard shortcuts
+    document.addEventListener('keydown', event => {
+        // Check for Ctrl or Cmd key
+        if (event.ctrlKey || event.metaKey) {
+            // List of keys to block: A, C, X, S, U, Shift+I
+            const blockedKeys = ['a', 'c', 'x', 's', 'u', 'i'];
+            const key = event.key.toLowerCase();
+
+            if (blockedKeys.includes(key)) {
+                // For Shift+I, check shiftKey as well
+                if (key === 'i' && !event.shiftKey) {
+                    return; // Allow if shift is not pressed
+                }
+                event.preventDefault();
+            }
+        }
+    });
+});
